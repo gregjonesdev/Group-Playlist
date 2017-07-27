@@ -1,6 +1,9 @@
 
 body {
   background-color: #7f8c8d;
+  background-image: url(../151409.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 20px 50px;
 }
 
@@ -11,8 +14,18 @@ body {
   width: 100%;
   background-color: #34495e;
   color: white;
-  font-size: 2em;
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
+}
+
+.title {
+  font-family: 'Bangers', cursive;
+  font-size: 3.5em;
+}
+
+.leadin {
 
 }
 
@@ -32,22 +45,27 @@ body {
   padding: 10px;
 }
 
-.entry>label {
+.entry label {
   color: white;
+  font-size: 1.2em;
+  font-weight: bold;
   margin-top: 10px;
+  text-shadow: -1px 1px #000000,1px 1px #000000,1px 1px #000000,1px -1px #000000;
+
 }
 
-.entry>input, .entry>textarea{
+.entry input, .entry textarea{
   width:100%;
   padding:3px;
-  border-radius: 2px;
-  border-color: white;
+  margin-bottom: 10px;
+  border: 2px solid #34495e;
   box-shadow: 0;
 }
 
-form>button {
+form button {
   width: 100px;
-  margin-top: 10px;
+  margin-top: 5px;
   border-radius: 2px;
   background-color: white;
+  font-size: 1.1em;
 }
