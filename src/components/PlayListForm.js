@@ -21,6 +21,7 @@ export default class PlayListForm extends Component {
   }
 
   handleSubmit = function(event) {
+    event.preventDefault()
     this.addToList(this.state)
   }
   handleNameEntry = function(event) {

@@ -6,7 +6,7 @@ export default class PlayList extends Component {
     super(props)
 
     this.state = {
-      artist: "Motorhead"
+
     }
 
     this.handleUpdate = this.handleUpdate.bind(this)
@@ -21,8 +21,8 @@ export default class PlayList extends Component {
          return results.json();
        }).then(data => {
          this.setState({songs: data});
-         console.log("state", this.state.songs)
-         alert(this.state.songs[3].artist)
+         console.log("stated", this.state.songs)
+
        })
   }
 

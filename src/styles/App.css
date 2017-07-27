@@ -1,9 +1,9 @@
 
 body {
   background-color: #7f8c8d;
-  background-image: url(../151409.jpg);
+  /*background-image: url(../151409.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
   padding: 20px 50px;
 }
 
@@ -33,7 +33,7 @@ body {
   width: 100%;
   margin-top: 20px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: center;
   border: 1px dotted white;
 }
@@ -69,4 +69,14 @@ form button {
   border-radius: 2px;
   background-color: white;
   font-size: 1.1em;
+}
+
+.playlistItem {
+  border: 1px dotted red;
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.playlist {
+  border: 2px solid red;
 }
