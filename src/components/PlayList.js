@@ -8,14 +8,30 @@ export default class PlayList extends Component {
     this.state = {
       artist: "Motorhead"
     }
+
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
+  handleUpdate = function (){
+    alert("Update")
+  }
+
+  componentDidMount(){
+    fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+         return results.json();
+       }).then(data => {
+         this.setState({songs: data});
+         console.log("state", this.state.songs)
+         alert(this.state.songs[3].artist)
+       })
+  }
 
 
   render() {
     return (
       <div className="playlist">
-        <PlayListItem playlist={this.state}/>
+        <button type="submit" onClick={this.handleUpdate}>Update</button>
+        <PlayListItem playlist={this.state.songs}/>
       </div>
     );
   }

@@ -16,9 +16,12 @@ export default class PlayListForm extends Component {
     this.handleArtistEntry = this.handleArtistEntry.bind(this)
     this.handleSongEntry = this.handleSongEntry.bind(this)
     this.handleNotesEntry = this.handleNotesEntry.bind(this)
+
+    this.addToList = this.addToList.bind(this)
   }
+
   handleSubmit = function(event) {
-    alert(this.state.artist)
+    this.addToList(this.state)
   }
   handleNameEntry = function(event) {
     this.setState({name: event.target.value})
@@ -31,6 +34,25 @@ export default class PlayListForm extends Component {
   }
   handleNotesEntry = function(event) {
     this.setState({notes: event.target.value})
+  }
+  addToList = function(info) {
+    let listItem = JSON.stringify(info);
+    fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
+          method: "POST",
+          body: listItem,
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+      }
+      ).then(response => {
+        console.log(response, "yay");
+
+      }).catch(err => {
+        console.log(err, "boo!");
+      });
+      this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
+
   }
 
 
@@ -63,33 +85,3 @@ export default class PlayListForm extends Component {
     );
   }
 }
-
-
-//******************************************************************************
-//In your PlayListForm component you should have a addToList function that happens
-//when the form is submitted.
-//This expression or method (dependin on the syntax you choose) will be comparable to this:
-
-// addToList = (e) => {
-//     e.preventDefault();
-//     this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
-//     let listItem = JSON.stringify(this.state);
-//
-//     fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
-//       method: "POST",
-//       body: listItem,
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//     }
-//   }
-//   ).then(response => {
-//     console.log(response, "yay");
-//
-//   }).catch(err => {
-//     console.log(err, "boo!");
-//   });
-//   this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
-// }
-
-//******************************************************************************
