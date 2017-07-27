@@ -1,0 +1,33 @@
+
+body {
+  background-color: #16a085;
+  padding: 20px 50px;
+}
+
+.App {
+}
+
+.nav {
+  width: 100%;
+  background-color: #ecf0f1;
+  color: #16a085;
+  font-size: 2em;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  border: 1px dotted white;
+}
+
+.playlist, .playlistForm {
+  background-color: #ecf0f1;
+  width: 45%;
+  min-width: 230px;
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+}
