@@ -4,61 +4,31 @@ export default class PlayListForm extends Component {
   render() {
     return (
       <div className="playlistForm">
-        Look at that bad ass play list form
+        <form>
+          <div className="entry">
+            <label>Username:</label>
+            <input type="text" name="username" placeholder="Name or Username"/>
+          </div>
+          <div className="entry">
+            <label>Artist/Band:</label>
+            <input type="text" name="artist" placeholder="Artist or Band Name"/>
+          </div>
+          <div className="entry">
+            <label>Song Title:</label>
+            <input type="text" name="songTitle" placeholder="Song Title"/>
+          </div>
+          <div className="entry">
+            <label>Notes About Song:</label>
+            <textarea name="notes"/>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     );
   }
 }
 
-//Inside of a componentDidMount function on the PlayList component
-//You should have the following fetch call to retrieve the playlists
-//from the server. Don't worry as much about how these function for now, as much placing
-//them in the right locations and getting them to work/sync up properly with the component.
 
-//******************************************************************************
-//******************************************************************************
-//copy and paste into componentDidMount in your PlayList component.
-// fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-//       return results.json();
-//     }).then(data => {
-//       this.setState({songs: data});
-//       console.log("state", this.state.songs);
-//     })
-
-
-//Also in your PlayList component you should have a function that manually updates
-//the playlist when a user presses a button. Use the following "fetchData" function
-//to manually update your playlist.
-
-// fetchData = (e) => {
-//     e.preventDefault();
-//     fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-//       return results.json();
-//     }).then(data => {
-//       this.setState({songs: data});
-//     })
-//   }
-
-///^^^^^^^^ The above function could also be written as a method :
-///////////////////////////
-// fetchData(e) {
-//  e.preventDefault();
-//  fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-//    return results.json();
-//  }).then(data => {
-//    this.setState({songs: data});
-//  })
-// }
-///////////////////////////
-//However if using the method version, you will need to bind `this` to the method
-//in the constructor() method. So the method has access to "this". Like so:
-////////////////////////////
-// constructor(props) {
-//   super(props);
-//
-//   this.fetchData = this.fetchData.bind(this);
-// }
-//******************************************************************************
 //******************************************************************************
 //In your PlayListForm component you should have a addToList function that happens
 //when the form is submitted.
