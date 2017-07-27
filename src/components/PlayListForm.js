@@ -4,13 +4,6 @@ export default class PlayListForm extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      name: "",
-      artist: "",
-      song: "",
-      notes: ""
-    }
-
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleNameEntry = this.handleNameEntry.bind(this)
     this.handleArtistEntry = this.handleArtistEntry.bind(this)
@@ -20,21 +13,23 @@ export default class PlayListForm extends Component {
     this.addToList = this.addToList.bind(this)
   }
 
+
+
   handleSubmit = function(event) {
     event.preventDefault()
-    this.addToList(this.state)
+    this.addToList(this.props.songlist)
   }
   handleNameEntry = function(event) {
-    this.setState({name: event.target.value})
+    this.props.songlist.userName = event.target.value
   }
   handleArtistEntry = function(event) {
-    this.setState({artist: event.target.value})
+    this.props.songlist.songArtist = event.target.value
   }
   handleSongEntry = function(event) {
-    this.setState({song: event.target.value})
+    this.props.songlist.songTitle = event.target.value
   }
   handleNotesEntry = function(event) {
-    this.setState({notes: event.target.value})
+    this.props.songlist.songNotes = event.target.value
   }
   addToList = function(info) {
     let listItem = JSON.stringify(info);
@@ -52,7 +47,6 @@ export default class PlayListForm extends Component {
       }).catch(err => {
         console.log(err, "boo!");
       });
-      this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
 
   }
 
