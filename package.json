@@ -1,6 +1,7 @@
 {
   "name": "playlist",
   "version": "0.1.0",
+  "homepage": "https://gregjonesdev.github.io/react-playlist"
   "private": true,
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
