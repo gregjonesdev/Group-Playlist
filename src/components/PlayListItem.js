@@ -9,26 +9,17 @@ export default class PlayListItem extends Component {
   }
 
   render() {
-    // let playlistEntries = ""
-    // alert(this.props.playlist.length)
-    // if(this.props.playlist) {
-    //   playlistEntries = this.props.playlist.map((entry, index) => {
+    // let songlist = this.props.songs.map((song, index) => {
     //   return (
     //     <div key={index} className="playlistItem">
-    //       <ul>
-    //         <li>User:{entry.userName}</li>
-    //         <li>Artist/Band:{entry.songArtist}</li>
-    //         <li>Title:{entry.songTitle}</li>
-    //         <li>Notes:{entry.songNotes}</li>
-    //       </ul>
     //     </div>
-    //
-    //   )
+    // )
     // })
-  //}
 
     return(
-      <div className="allEntries">
+      <div className="playlist">
+    
+
       </div>
     )
 

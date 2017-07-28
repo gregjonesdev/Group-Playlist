@@ -4,6 +4,13 @@ export default class PlayListForm extends Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+        userName: "",
+        songArtist: "",
+        songTitle: "",
+        songNotes: ""
+      }
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleNameEntry = this.handleNameEntry.bind(this)
     this.handleArtistEntry = this.handleArtistEntry.bind(this)
@@ -11,45 +18,48 @@ export default class PlayListForm extends Component {
     this.handleNotesEntry = this.handleNotesEntry.bind(this)
 
     this.addToList = this.addToList.bind(this)
+
   }
-
-
 
   handleSubmit = function(event) {
     event.preventDefault()
-    this.addToList(this.props.songlist)
+    this.addToList(event)
+    alert(this.state.userName)
   }
   handleNameEntry = function(event) {
-    this.props.songlist.userName = event.target.value
+    this.setState({userName: event.target.value})
   }
   handleArtistEntry = function(event) {
-    this.props.songlist.songArtist = event.target.value
+    this.setState({songArtist: event.target.value})
   }
   handleSongEntry = function(event) {
-    this.props.songlist.songTitle = event.target.value
+    this.setState({songTitle: event.target.value})
   }
   handleNotesEntry = function(event) {
-    this.props.songlist.songNotes = event.target.value
+    this.setState({songNotes: event.target.value})
   }
-  addToList = function(info) {
-    let listItem = JSON.stringify(info);
-    fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
-          method: "POST",
-          body: listItem,
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
+
+  addToList = (e) => {
+      e.preventDefault();
+      this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
+      let listItem = JSON.stringify(this.state);
+
+      fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
+        method: "POST",
+        body: listItem,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
       }
-      ).then(response => {
-        console.log(response, "yay");
+    }
+    ).then(response => {
+      console.log(response, "yay");
 
-      }).catch(err => {
-        console.log(err, "boo!");
-      });
-
+    }).catch(err => {
+      console.log(err, "boo!");
+    });
+    this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
   }
-
 
 
 
