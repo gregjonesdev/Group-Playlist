@@ -27,7 +27,7 @@ export default class PlayList extends Component {
   render() {
       return (
         <div className="playlist">
-          <button>Update</button>
+          <button onClick={this.props.refresh}>Update</button>
           <PlayListItem songs={this.state.songs}/>
         </div>
       )

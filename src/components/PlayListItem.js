@@ -11,10 +11,10 @@ export default class PlayListItem extends Component {
       return(
         <div key= {index} className="playlistItem">
           <ul>
-          <li>User: {song.userName}</li>
-          <li>Artist/Band: {song.songArtist}</li>
-          <li>Title: {song.songTitle}</li>
-          <li>Notes: {song.songNotes}</li>
+            <li>User: {song.userName}</li>
+            <li>Artist/Band: {song.songArtist}</li>
+            <li>Title: {song.songTitle}</li>
+            <li>Notes: {song.songNotes}</li>
           </ul>
         </div>
       )

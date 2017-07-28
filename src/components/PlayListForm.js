@@ -16,7 +16,6 @@ export default class PlayListForm extends Component {
     this.handleArtistEntry = this.handleArtistEntry.bind(this)
     this.handleSongEntry = this.handleSongEntry.bind(this)
     this.handleNotesEntry = this.handleNotesEntry.bind(this)
-
     this.addToList = this.addToList.bind(this)
 
   }
@@ -24,6 +23,7 @@ export default class PlayListForm extends Component {
   handleSubmit = function(event) {
     event.preventDefault()
     this.addToList(event)
+    //this.props.refresh()
   }
   handleNameEntry = function(event) {
     this.setState({userName: event.target.value})
@@ -52,6 +52,7 @@ export default class PlayListForm extends Component {
       }
     }
     ).then(response => {
+      this.props.refresh()
       console.log(response, "yay");
 
     }).catch(err => {
@@ -68,7 +69,7 @@ export default class PlayListForm extends Component {
       <div className="playlistForm">
         <form onSubmit={this.handleSubmit}>
           <div className="entry">
-            <label>Username:</label>
+            <label>Username: </label>
             <input type="text" name="username" onChange={this.handleNameEntry} placeholder="Name or Username"/>
           </div>
           <div className="entry">
