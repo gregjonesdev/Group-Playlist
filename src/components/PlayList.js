@@ -4,29 +4,32 @@ import PlayListItem from './PlayListItem'
 export default class PlayList extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+        songs: []
+      }
+
   }
 
-componentDidMount(){
-  fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-    return results.json();
-  }).then(data => {
-    this.setState({songs: data});
-  })
-}
+
+  componentDidMount(){
+    fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+      return results.json();
+    }).then(data => {
+      this.setState({songs: data});
+    }).catch((error) => {
+      console.log("Error with fetching: ", error)
+    })
+  }
+
 
 
   render() {
-    return (
-      <div className="playlist">
-        <PlayListItem/>
-
-      </div>
-    )
+      return (
+        <div className="playlist">
+          <button>Update</button>
+          <PlayListItem songs={this.state.songs}/>
+        </div>
+      )
   }
-
-
-
-
-
-
 }

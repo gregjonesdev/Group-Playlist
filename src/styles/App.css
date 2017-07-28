@@ -1,10 +1,10 @@
 
 body {
   background-color: #7f8c8d;
-  /*background-image: url(../151409.jpg);
+  background-image: url(../151409.jpg);
   background-size: cover;
-  background-repeat: no-repeat;*/
-  padding: 20px 50px;
+  background-repeat: no-repeat;
+  padding: 20px 20px;
 }
 
 .App {
@@ -14,7 +14,7 @@ body {
   width: 100%;
   background-color: #34495e;
   color: white;
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .leadin {
-
+  -webkit-transform: rotate(-55deg);
 }
 
 .content {
@@ -35,7 +35,6 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  border: 1px dotted white;
 }
 
 .playlist, .playlistForm {
@@ -76,8 +75,16 @@ button {
   border: 1px dotted red;
   background-color: white;
   margin-bottom: 10px;
+  border: 2px solid #34495e;
+
 }
 
 .playlist {
-  border: 2px solid red;
+  max-height: 615px;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+  padding-left: 10px;
 }
