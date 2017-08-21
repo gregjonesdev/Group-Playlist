@@ -1,8 +1,8 @@
-#React Playlist
+# React Playlist
 
 ![react playlist](http://imgur.com/a/NrHpM)
 
-##Summary
+## Summary
 
 The objective of this assignment was to create a React application that posted user-entered data to a database and also displayed results from a fetch to the database. I organized the code into components and passed data from parent to child through props.
 
