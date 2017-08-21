@@ -1,6 +1,6 @@
 # React Playlist
 
-![react playlist](http://imgur.com/a/NrHpM)
+![react playlist](http://i.imgur.com/3f62TjS.png)
 
 ## Summary
 
